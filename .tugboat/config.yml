@@ -1,6 +1,6 @@
 services:
   php: 
-    image: tugboatqa/php-7:apache
+    image: tugboatqa/php:7.4-apache
 
     default: true
 
@@ -9,6 +9,10 @@ services:
         - cp .env.example .env
         - composer install
         - php artisan key:generate
+        - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
+        - chown -R www-data storage bootstrap/cache
+        - chmod -R 744 storage bootstrap/cache
+        - a2enmod headers rewrite
 
   mysql:
     image: tugboatqa/mysql
