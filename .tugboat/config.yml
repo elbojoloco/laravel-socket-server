@@ -12,6 +12,7 @@ services:
         - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
         - chown -R www-data storage bootstrap/cache
         - chmod -R 744 storage bootstrap/cache
+        - a2enmod headers rewrite
 
   mysql:
     image: tugboatqa/mysql
