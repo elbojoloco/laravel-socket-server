@@ -25,3 +25,7 @@ Route::get('/test-event', function () {
 Route::get('/test-event-others', function () {
     broadcast(new \App\Events\TestEvent)->toOthers();
 });
+
+Route::get('/test-new-route', function () {
+    return 'yes';
+});
