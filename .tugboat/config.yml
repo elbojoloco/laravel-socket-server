@@ -4,11 +4,14 @@ services:
 
     default: true
 
+    # depends: mysql
+
     commands:
       init:
         - cp .env.example .env
         - composer install
         - php artisan key:generate
+        - ln -snf "${TUGBOAT_ROOT}/public" "${DOCROOT}"
 
   mysql:
     image: tugboatqa/mysql
