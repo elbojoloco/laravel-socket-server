@@ -1,0 +1,14 @@
+services:
+  php: 
+    image: tugboatqa/php-7:apache
+
+    default: true
+
+    commands:
+      init:
+        - cp .env.example .env
+        - composer install
+        - php artisan key:generate
+
+  mysql:
+    image: tugboatqa/mysql
