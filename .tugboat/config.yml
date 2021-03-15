@@ -1,6 +1,6 @@
 services:
   php: 
-    image: tugboatqa/php-7:apache
+    image: tugboatqa/php:7.4-apache
 
     default: true
 
